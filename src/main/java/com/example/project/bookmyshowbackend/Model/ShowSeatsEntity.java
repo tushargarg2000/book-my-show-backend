@@ -25,11 +25,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-/**
- * @author naveen
- *
- * @date 05-Sep-2019
- */
+
 @Getter
 @Setter
 @Entity
