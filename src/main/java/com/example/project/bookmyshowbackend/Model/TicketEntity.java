@@ -1,51 +1,64 @@
 package com.example.project.bookmyshowbackend.Model;
 
 
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.*;
+
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.format.annotation.DateTimeFormat;
+import lombok.ToString;
 
-import javax.persistence.*;
-import java.util.Date;
-
-@Entity
+/**
+ * @author naveen
+ *
+ * @date 04-Sep-2019
+ */
 @Getter
 @Setter
-@AllArgsConstructor
+@Entity
+@EntityListeners(value = { AuditingEntityListener.class })
+@Table(name = "tickets")
 @NoArgsConstructor
-@Table(name="tickets")
+@Builder
+@AllArgsConstructor
+@ToString
 public class TicketEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "alloted_seats", nullable = false)
+    private String allottedSeats;
 
-    private String alloted_seats;
+    @Column(name = "amount", nullable = false)
+    private double amount;
 
-    int amount;
+    @CreatedDate
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = "booked_at", nullable = false)
+    private Date bookedAt;
 
-    @CreationTimestamp
-    Date createdOn;
-
-
-
-    //Done on the child's behalf
     @ManyToOne
-    @JoinColumn
     @JsonIgnore
-    UserEntity user; //This is a foreign key that will connect to the User Table
+    @JoinColumn
+    private UserEntity user;
 
+    @ManyToOne
+    @JsonIgnore
+    private ShowEntity show;
 
-    //ShowEntity
-
-
-    //List<ShowSeatsEntity>
-
-
-
+    @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<ShowSeatsEntity> seats;
 }

@@ -1,7 +1,6 @@
 package com.example.project.bookmyshowbackend.Model;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -15,11 +14,10 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.example.project.bookmyshowbackend.Model.ShowEntity;
+import com.example.project.bookmyshowbackend.enums.TheaterType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -33,11 +31,11 @@ import lombok.ToString;
 @Getter
 @Setter
 @Entity
-@Table(name = "movies")
+@Table(name = "theaters")
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class MovieEntity {
+public class TheaterEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -46,11 +44,21 @@ public class MovieEntity {
     @Column(name = "name", nullable = false)
     private String name;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type", nullable = false)
+    private TheaterType type;
 
-    @Column(name = "release_date", columnDefinition = "DATE", nullable = false)
-    private LocalDate releaseDate;
+    @Column(name = "city", nullable = false)
+    private String city;
 
-    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+    @Column(name = "address", nullable = false)
+    private String address;
+
+    @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<ShowEntity> shows;
+
+    @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<TheaterSeatsEntity> seats;
 }

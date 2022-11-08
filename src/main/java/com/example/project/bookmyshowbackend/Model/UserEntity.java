@@ -1,36 +1,31 @@
 package com.example.project.bookmyshowbackend.Model;
 
-
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
-@Table(name="users")
+@Table(name = "users")
+@NoArgsConstructor
+@Builder
+@AllArgsConstructor
+@ToString
 public class UserEntity {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private long id;
 
-
+    @Column(name = "name", nullable = false)
     private String name;
-    private String mobileNo;
 
+    @Column(name = "mobile", nullable = false)
+    private String mobile;
 
-    //This is the pending part..this is tricky
-    private List<TicketEntity> listOfTickets;
-
-
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<TicketEntity> ticketEntities;
 
 }
