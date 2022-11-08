@@ -17,7 +17,7 @@ public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -25,7 +25,7 @@ public class UserEntity {
     @Column(name = "mobile", nullable = false)
     private String mobile;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) //bidirectional mapping
     private List<TicketEntity> ticketEntities;
 
 }
