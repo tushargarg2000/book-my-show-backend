@@ -24,7 +24,9 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDto getUser(int id) {
 
-        Optional<UserEntity> userEntity = userRepository.findById(id);
+        UserEntity user = new UserEntity(); //By default user.
+
+        UserEntity userEntity = userRepository.findById(id).get();
 
         UserDto userDto = UserConverter.convertEntityToDto(userEntity);
 

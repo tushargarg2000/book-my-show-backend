@@ -1,21 +1,17 @@
 package com.example.project.bookmyshowbackend.Model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.example.project.bookmyshowbackend.Model.ShowEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
@@ -31,12 +27,13 @@ import lombok.ToString;
 @Table(name = "movies")
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @ToString
 public class MovieEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     @Column(name = "name", nullable = false)
     private String name;
