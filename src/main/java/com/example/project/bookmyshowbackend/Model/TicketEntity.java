@@ -32,7 +32,7 @@ public class TicketEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     @Column(name = "alloted_seats", nullable = false)
     private String allottedSeats;

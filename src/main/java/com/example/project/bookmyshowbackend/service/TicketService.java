@@ -6,7 +6,7 @@ import com.example.project.bookmyshowbackend.dto.TicketDto;
 public interface TicketService {
 
 
-        TicketDto getTicket(int id);
+        TicketDto getTicket(int id); //H.W (Hint is same as you do in GetMovie)
 
         TicketDto bookTicket(BookTicketRequestDto bookTicketRequestDto);
 
