@@ -9,12 +9,12 @@ import java.util.Set;
 
 public class BookTicketRequestDto {
 
-    Set<String> requestedSeats;
+    Set<String> requestedSeats; //User will give
 
-    int id;
+    int id; //user Id who is booking the ticket   :- UserEntity
 
-    int showId;
+    int showId; //For which show I want to book ticket :- showEntity
 
-    SeatType seatType;
+    SeatType seatType; //TheaterSeatEntity
 
 }

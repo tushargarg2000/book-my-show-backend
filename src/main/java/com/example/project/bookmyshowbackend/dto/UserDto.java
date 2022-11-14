@@ -5,6 +5,8 @@ import com.sun.istack.NotNull;
 import jdk.jfr.Name;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -19,4 +21,7 @@ public class UserDto {
 
     @NotNull
     String mobileNo;
+
+
+    List<TicketDto> ticketDtoList;
 }

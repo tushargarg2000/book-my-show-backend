@@ -14,12 +14,11 @@ import java.util.List;
 @NoArgsConstructor
 public class MovieDto {
 
-
     int id;
 
     String name;
 
     LocalDate releaseDate;
 
-    List<ShowDto> movies;
+    List<ShowDto> showDtoList;
 }

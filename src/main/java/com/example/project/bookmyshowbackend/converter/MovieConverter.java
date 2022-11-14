@@ -8,7 +8,7 @@ public class MovieConverter {
 
     public static MovieEntity convertDtoToEntity(MovieDto movieDto){
 
-        return MovieEntity.builder().id(movieDto.getId()).name(movieDto.getName())
+        return MovieEntity.builder().name(movieDto.getName())
                 .releaseDate(movieDto.getReleaseDate()).build();
 
     }

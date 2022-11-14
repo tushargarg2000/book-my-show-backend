@@ -28,7 +28,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@ToString
 public class MovieEntity {
 
     @Id

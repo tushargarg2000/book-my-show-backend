@@ -24,7 +24,7 @@ public class MovieServiceImpl implements MovieService {
 
         //if the movie is already created then we can throw an exception....movie already exists.
 
-
+        //
 
         if(movieDto.getId()<0){
             throw new EntityNotFoundException("Movie can't be found");
