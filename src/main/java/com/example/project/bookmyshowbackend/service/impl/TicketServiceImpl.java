@@ -40,11 +40,8 @@ public class TicketServiceImpl implements TicketService {
 
 
         UserEntity userEntity = userRepository.findById(bookTicketRequestDto.getId()).get();
-
         ShowEntity showEntity = showRepository.findById(bookTicketRequestDto.getShowId()).get();
-
         Set<String> requestSeats = bookTicketRequestDto.getRequestedSeats();
-
         List<ShowSeatsEntity> showSeatsEntityList = showEntity.getSeats();
 
 
@@ -74,7 +71,7 @@ public class TicketServiceImpl implements TicketService {
         //Step 2
 
         TicketEntity ticketEntity = TicketEntity.builder().
-        user(userEntity)
+        userNameBlahBlah(userEntity)
                 .show(showEntity)
                         .seats(bookedSeats).
                 build();
@@ -98,9 +95,14 @@ public class TicketServiceImpl implements TicketService {
         ticketEntity.setAmount(amount);
 
 
-        //Connect in thw Show and the
-        //ShowEntity.setTickets()
-        //userEntity.setticket();
+        //Connect in thw Show and the user
+
+        showEntity.getTickets().add(ticketEntity);
+
+
+        //Add the ticket in the tickets list of the user Entity
+        userEntity.getTicketEntities().add(ticketEntity);
+
 
         ticketEntity = ticketRepository.save(ticketEntity);
 

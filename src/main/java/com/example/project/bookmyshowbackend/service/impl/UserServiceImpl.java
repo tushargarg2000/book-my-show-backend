@@ -8,9 +8,11 @@ import com.example.project.bookmyshowbackend.dto.ResponseDto.UserResponseDto;
 import com.example.project.bookmyshowbackend.dto.UserDto;
 import com.example.project.bookmyshowbackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     @Autowired

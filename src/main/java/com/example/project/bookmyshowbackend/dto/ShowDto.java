@@ -1,5 +1,6 @@
 package com.example.project.bookmyshowbackend.dto;
 
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import java.time.LocalDate;
@@ -20,7 +21,9 @@ public class ShowDto {
 
     LocalTime showTime;
 
+    @NotNull
     MovieDto movieDto;
+
 
     TheaterDto theaterDto;
 

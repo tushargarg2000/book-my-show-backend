@@ -2,7 +2,6 @@ package com.example.project.bookmyshowbackend.dto;
 
 
 import com.sun.istack.NotNull;
-import jdk.jfr.Name;
 import lombok.*;
 
 import java.util.List;

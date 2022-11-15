@@ -3,6 +3,8 @@ package com.example.project.bookmyshowbackend.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @Builder
@@ -22,6 +24,8 @@ public class TheaterDto {
 
 
     //Show Entity
-    ShowDto showDto;
+   List<ShowDto> showDtoList;
+
+
 
 }

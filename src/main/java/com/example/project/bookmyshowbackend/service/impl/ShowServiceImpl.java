@@ -15,7 +15,6 @@ import java.util.List;
 
 public class ShowServiceImpl implements ShowService {
 
-
     @Autowired
     MovieRepository movieRepository;
 
