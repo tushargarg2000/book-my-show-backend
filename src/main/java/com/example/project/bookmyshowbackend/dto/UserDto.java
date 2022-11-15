@@ -21,7 +21,4 @@ public class UserDto {
 
     @NotNull
     String mobileNo;
-
-
-    List<TicketDto> ticketDtoList;
 }

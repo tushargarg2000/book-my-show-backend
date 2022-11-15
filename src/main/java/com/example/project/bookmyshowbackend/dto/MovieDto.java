@@ -15,10 +15,7 @@ import java.util.List;
 public class MovieDto {
 
     int id;
-
     String name;
-
     LocalDate releaseDate;
-
     List<ShowDto> showDtoList;
 }

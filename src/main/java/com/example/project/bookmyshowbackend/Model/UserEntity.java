@@ -24,7 +24,7 @@ public class UserEntity {
     @Column(name = "mobile", nullable = false)
     private String mobile;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL) //bidirectional mapping
+    @OneToMany(mappedBy = "userNameBlahBlah", cascade = CascadeType.ALL) //bidirectional mapping
     private List<TicketEntity> ticketEntities;
 
 }

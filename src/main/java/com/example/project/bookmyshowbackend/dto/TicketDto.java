@@ -1,6 +1,7 @@
 package com.example.project.bookmyshowbackend.dto;
 
 
+import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Data;
 
@@ -16,5 +17,6 @@ public class TicketDto {
 
     ShowDto showDto;
 
-    UserDto userDto;
+    @NotNull
+    UserDto userDto; //Mandatory for me to fill this userDto Value
 }

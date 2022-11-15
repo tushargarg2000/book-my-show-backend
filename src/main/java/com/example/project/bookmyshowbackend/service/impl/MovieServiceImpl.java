@@ -3,7 +3,9 @@ package com.example.project.bookmyshowbackend.service.impl;
 import com.example.project.bookmyshowbackend.Model.MovieEntity;
 import com.example.project.bookmyshowbackend.Repository.MovieRepository;
 import com.example.project.bookmyshowbackend.converter.MovieConverter;
+import com.example.project.bookmyshowbackend.dto.EntryRequest.MovieEntryDto;
 import com.example.project.bookmyshowbackend.dto.MovieDto;
+import com.example.project.bookmyshowbackend.dto.ResponseDto.MovieResponseDto;
 import com.example.project.bookmyshowbackend.service.MovieService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,33 +22,32 @@ public class MovieServiceImpl implements MovieService {
     MovieRepository movieRepository;
 
     @Override
-    public MovieDto addMovie(MovieDto movieDto) {
+    public MovieResponseDto addMovie(MovieEntryDto movieEntryDto) {
 
         //if the movie is already created then we can throw an exception....movie already exists.
 
         //
 
-        if(movieDto.getId()<0){
-            throw new EntityNotFoundException("Movie can't be found");
-        }
 
-        log.info("Adding the movie",movieDto);
+        log.info("Adding the movie",movieEntryDto);
 
 
-        MovieEntity movieEntity = MovieConverter.convertDtoToEntity(movieDto);
+        MovieEntity movieEntity = MovieConverter.convertDtoToEntity(movieEntryDto);
         movieEntity = movieRepository.save(movieEntity);
 
-        return movieDto;
+        MovieResponseDto movieResponseDto = MovieConverter.convertEntityToDto(movieEntity);
+
+        return movieResponseDto; //It can be a response type of the movie
 
     }
 
     @Override
-    public MovieDto getMovie(int id) {
+    public MovieResponseDto getMovie(int id) {
 
         MovieEntity movieEntity = movieRepository.findById(id).get();
 
-        MovieDto movieDto = MovieConverter.convertEntityToDto(movieEntity);
-        return movieDto;
+        MovieResponseDto movieResponseDto = MovieConverter.convertEntityToDto(movieEntity);
+        return movieResponseDto;
 
     }
 }

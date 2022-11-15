@@ -1,16 +1,17 @@
 package com.example.project.bookmyshowbackend.service;
 
+import com.example.project.bookmyshowbackend.dto.EntryRequest.MovieEntryDto;
 import com.example.project.bookmyshowbackend.dto.MovieDto;
+import com.example.project.bookmyshowbackend.dto.ResponseDto.MovieResponseDto;
 
 public interface MovieService {
 
     //Add movie
-
-    MovieDto addMovie(MovieDto movieDto);
+    MovieResponseDto addMovie(MovieEntryDto movieEntryDto);
 
 
     //get movie
-    MovieDto getMovie(int id);
+    MovieResponseDto getMovie(int id);
 
 
 }
