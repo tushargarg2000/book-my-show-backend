@@ -5,7 +5,6 @@ import com.example.project.bookmyshowbackend.Repository.UserRepository;
 import com.example.project.bookmyshowbackend.converter.UserConverter;
 import com.example.project.bookmyshowbackend.dto.EntryRequest.UserEntryDto;
 import com.example.project.bookmyshowbackend.dto.ResponseDto.UserResponseDto;
-import com.example.project.bookmyshowbackend.dto.UserDto;
 import com.example.project.bookmyshowbackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -48,7 +48,7 @@ public class TicketEntity {
     @ManyToOne
     @JsonIgnore
     @JoinColumn
-    private UserEntity userNameBlahBlah;
+    private UserEntity user;
 
     @ManyToOne
     @JsonIgnore

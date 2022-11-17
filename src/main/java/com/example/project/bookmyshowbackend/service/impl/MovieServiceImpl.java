@@ -4,17 +4,15 @@ import com.example.project.bookmyshowbackend.Model.MovieEntity;
 import com.example.project.bookmyshowbackend.Repository.MovieRepository;
 import com.example.project.bookmyshowbackend.converter.MovieConverter;
 import com.example.project.bookmyshowbackend.dto.EntryRequest.MovieEntryDto;
-import com.example.project.bookmyshowbackend.dto.MovieDto;
 import com.example.project.bookmyshowbackend.dto.ResponseDto.MovieResponseDto;
+import com.example.project.bookmyshowbackend.exception.DuplicateEntityException;
 import com.example.project.bookmyshowbackend.service.MovieService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.persistence.EntityNotFoundException;
-
+import org.springframework.stereotype.Service;
 
 @Slf4j
-
+@Service
 public class MovieServiceImpl implements MovieService {
 
 
@@ -22,14 +20,16 @@ public class MovieServiceImpl implements MovieService {
     MovieRepository movieRepository;
 
     @Override
-    public MovieResponseDto addMovie(MovieEntryDto movieEntryDto) {
+    public MovieResponseDto addMovie(MovieEntryDto movieEntryDto)  {
 
         //if the movie is already created then we can throw an exception....movie already exists.
+        if(movieRepository.getMovieEntityByName(movieEntryDto.getName())==true){
+            throw new DuplicateEntityException("The movie exists already exists by this name, duplicate entry");
+        }
 
-        //
 
 
-        log.info("Adding the movie",movieEntryDto);
+        log.info("In the function add movie "+ movieEntryDto);
 
 
         MovieEntity movieEntity = MovieConverter.convertDtoToEntity(movieEntryDto);

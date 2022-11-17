@@ -24,7 +24,7 @@ public class ShowDto {
     @NotNull
     MovieDto movieDto;
 
-
+    @NotNull
     TheaterDto theaterDto;
 
 }

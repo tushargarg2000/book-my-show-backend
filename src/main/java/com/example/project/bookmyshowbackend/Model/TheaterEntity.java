@@ -26,7 +26,6 @@ import lombok.*;
 @Table(name = "theaters")
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Builder
 public class TheaterEntity {
 
@@ -47,6 +46,8 @@ public class TheaterEntity {
     @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<ShowEntity> shows;
+
+    TheaterType type;
 
     @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
     @JsonIgnore

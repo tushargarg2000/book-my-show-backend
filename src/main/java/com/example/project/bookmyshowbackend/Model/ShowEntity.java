@@ -45,7 +45,7 @@ public class ShowEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     @Column(name = "show_date", columnDefinition = "DATE", nullable = false)
     private LocalDate showDate;

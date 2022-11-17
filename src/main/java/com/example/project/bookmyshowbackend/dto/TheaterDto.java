@@ -1,6 +1,7 @@
 package com.example.project.bookmyshowbackend.dto;
 
 
+import com.example.project.bookmyshowbackend.enums.TheaterType;
 import lombok.*;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class TheaterDto {
     String city;
 
     //Seats ---> You will tell me
-
+    TheaterType type;
 
     //Show Entity
    List<ShowDto> showDtoList;

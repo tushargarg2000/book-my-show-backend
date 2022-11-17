@@ -1,6 +1,5 @@
-package com.example.project.bookmyshowbackend.dto.EntryRequest;
+package com.example.project.bookmyshowbackend.dto.ResponseDto;
 
-import com.example.project.bookmyshowbackend.dto.ResponseDto.MovieResponseDto;
 import com.example.project.bookmyshowbackend.dto.TheaterDto;
 import com.sun.istack.NotNull;
 import lombok.Builder;
@@ -11,18 +10,19 @@ import java.time.LocalTime;
 
 @Data
 @Builder
-public class ShowEntryDto {
+public class ShowResponseDto {
 
-    @NotNull
+
+    int id;
+
     LocalDate showDate;
 
-    @NotNull
     LocalTime showTime;
-
 
     @NotNull
     MovieResponseDto movieResponseDto;
 
     @NotNull
     TheaterDto theaterDto;
+
 }

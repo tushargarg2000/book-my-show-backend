@@ -71,7 +71,7 @@ public class TicketServiceImpl implements TicketService {
         //Step 2
 
         TicketEntity ticketEntity = TicketEntity.builder().
-        userNameBlahBlah(userEntity)
+        user(userEntity)
                 .show(showEntity)
                         .seats(bookedSeats).
                 build();
