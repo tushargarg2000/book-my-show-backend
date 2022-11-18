@@ -65,6 +65,13 @@ public class ShowServiceImpl implements ShowService {
 
         List<ShowSeatsEntity> showSeatsEntityList = new ArrayList<>();
 
+        //log.info(String.valueOf(theaterSeatsEntityList));
+        log.info("The list of theaterEntity Seats");
+        for(TheaterSeatsEntity tse: theaterSeatsEntityList){
+            log.info(tse.toString());
+        }
+
+
         for(TheaterSeatsEntity tse : theaterSeatsEntityList){
 
             ShowSeatsEntity showSeatsEntity = ShowSeatsEntity.builder().seatNumber(tse.getSeatNumber())
@@ -75,14 +82,16 @@ public class ShowServiceImpl implements ShowService {
             showSeatsEntityList.add(showSeatsEntity);
         }
 
+
         //We need to set the show Entity for each of the ShowSeat....
+
+
+        showSeatsRepository.saveAll(showSeatsEntityList);
+
         for(ShowSeatsEntity showSeatsEntity:showSeatsEntityList){
             showSeatsEntity.setShow(showEntity);
         }
-
         showEntity.setSeats(showSeatsEntityList);
-
-        showSeatsRepository.saveAll(showSeatsEntityList);
 
     }
 
