@@ -40,7 +40,7 @@ public class ShowServiceImpl implements ShowService {
         //MovieEntity
         MovieEntity movieEntity = movieRepository.findById(showEntryDto.getMovieResponseDto().getId()).get();
 
-        TheaterEntity theaterEntity = theaterRepository.findById(showEntryDto.getTheaterDto().getId()).get();
+        TheaterEntity theaterEntity = theaterRepository.findById(showEntryDto.getTheaterResponseDto().getId()).get();
 
 
         showEntity.setMovie(movieEntity);

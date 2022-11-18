@@ -19,7 +19,6 @@ public class ShowEntryDto {
     @NotNull
     LocalTime showTime;
 
-
     @NotNull
     MovieResponseDto movieResponseDto;
 
