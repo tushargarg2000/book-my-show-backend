@@ -7,7 +7,6 @@ import com.example.project.bookmyshowbackend.Repository.TheaterSeatsRepository;
 import com.example.project.bookmyshowbackend.converter.TheaterConverter;
 import com.example.project.bookmyshowbackend.dto.EntryRequest.TheaterEntryDto;
 import com.example.project.bookmyshowbackend.dto.ResponseDto.TheaterResponseDto;
-import com.example.project.bookmyshowbackend.dto.TheaterDto;
 import com.example.project.bookmyshowbackend.enums.SeatType;
 import com.example.project.bookmyshowbackend.enums.TheaterType;
 import com.example.project.bookmyshowbackend.service.TheaterService;

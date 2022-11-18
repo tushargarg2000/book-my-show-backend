@@ -3,7 +3,6 @@ package com.example.project.bookmyshowbackend.converter;
 import com.example.project.bookmyshowbackend.Model.ShowEntity;
 import com.example.project.bookmyshowbackend.dto.EntryRequest.ShowEntryDto;
 import com.example.project.bookmyshowbackend.dto.ResponseDto.ShowResponseDto;
-import com.example.project.bookmyshowbackend.dto.ShowDto;
 
 public class ShowConvertor {
 

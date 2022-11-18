@@ -8,7 +8,6 @@ import com.example.project.bookmyshowbackend.Repository.TheaterRepository;
 import com.example.project.bookmyshowbackend.converter.ShowConvertor;
 import com.example.project.bookmyshowbackend.dto.EntryRequest.ShowEntryDto;
 import com.example.project.bookmyshowbackend.dto.ResponseDto.ShowResponseDto;
-import com.example.project.bookmyshowbackend.dto.ShowDto;
 import com.example.project.bookmyshowbackend.service.ShowService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;

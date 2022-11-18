@@ -3,7 +3,6 @@ package com.example.project.bookmyshowbackend.controller;
 
 import com.example.project.bookmyshowbackend.dto.EntryRequest.TheaterEntryDto;
 import com.example.project.bookmyshowbackend.dto.ResponseDto.TheaterResponseDto;
-import com.example.project.bookmyshowbackend.dto.TheaterDto;
 import com.example.project.bookmyshowbackend.service.impl.TheaterServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;

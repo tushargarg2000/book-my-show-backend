@@ -1,6 +1,5 @@
 package com.example.project.bookmyshowbackend.dto.ResponseDto;
 
-import com.example.project.bookmyshowbackend.dto.TheaterDto;
 import com.sun.istack.NotNull;
 import lombok.Builder;
 import lombok.Data;
