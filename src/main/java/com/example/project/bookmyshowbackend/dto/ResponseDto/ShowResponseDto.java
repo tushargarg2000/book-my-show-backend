@@ -22,6 +22,6 @@ public class ShowResponseDto {
     MovieResponseDto movieResponseDto;
 
     @NotNull
-    TheaterDto theaterDto;
+    TheaterResponseDto theaterDto;
 
 }
