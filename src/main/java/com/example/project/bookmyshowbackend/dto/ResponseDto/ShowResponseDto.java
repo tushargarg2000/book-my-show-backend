@@ -18,10 +18,8 @@ public class ShowResponseDto {
 
     LocalTime showTime;
 
-    @NotNull
     MovieResponseDto movieResponseDto;
 
-    @NotNull
     TheaterResponseDto theaterDto;
 
 }

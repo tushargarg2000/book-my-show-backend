@@ -36,6 +36,7 @@ public class TheaterServiceImpl implements TheaterService {
         //create the Seats
         List<TheaterSeatsEntity> seats = createTheaterSeats();
 
+
         theaterEntity.setSeats(seats);
         //I need to set the theaterId for all these seats
 
@@ -46,7 +47,7 @@ public class TheaterServiceImpl implements TheaterService {
         }
         theaterEntity.setType(TheaterType.SINGLE);
 
-        log.info("The thetaer entity is "+ theaterEntity);
+        log.info("The theater entity is "+ theaterEntity);
 
         theaterEntity = theaterRepository.save(theaterEntity);
 

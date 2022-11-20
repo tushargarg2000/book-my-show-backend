@@ -5,19 +5,10 @@ import java.time.LocalTime;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -40,7 +31,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@ToString
 public class ShowEntity {
 
     @Id
@@ -54,11 +44,13 @@ public class ShowEntity {
     private LocalTime showTime;
 
 
+    @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @CreatedDate
     @Column(name = "created_at")
     private Date createdAt;
 
+    @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
     @LastModifiedDate
     @Column(name = "updated_at")

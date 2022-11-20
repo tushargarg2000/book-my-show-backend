@@ -27,7 +27,6 @@ import lombok.ToString;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-@ToString
 public class TicketEntity {
 
     @Id

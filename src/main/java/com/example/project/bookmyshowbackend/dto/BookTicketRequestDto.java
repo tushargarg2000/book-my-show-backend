@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -17,10 +18,11 @@ public class BookTicketRequestDto {
 
     Set<String> requestedSeats; //User will give
 
-    int id; //user Id who is booking the ticket   :- UserEntity
+     //user Id who is booking the ticket   :- UserEntity
 
     int showId; //For which show I want to book ticket :- showEntity
 
+    int id;
     SeatType seatType; //TheaterSeatEntity
 
 }

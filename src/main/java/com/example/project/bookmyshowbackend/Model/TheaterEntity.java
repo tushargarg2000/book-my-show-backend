@@ -1,6 +1,7 @@
 package com.example.project.bookmyshowbackend.Model;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -51,5 +52,5 @@ public class TheaterEntity {
 
     @OneToMany(mappedBy = "theater", cascade = CascadeType.ALL)
     @JsonIgnore
-    private List<TheaterSeatsEntity> seats;
+    private List<TheaterSeatsEntity> seats = new ArrayList<>();
 }

@@ -38,7 +38,7 @@ public class ShowSeatsEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private int id;
 
     @Column(name = "seat_number", nullable = false)
     private String seatNumber;

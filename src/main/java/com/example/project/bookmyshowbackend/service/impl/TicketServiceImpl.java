@@ -9,9 +9,11 @@ import com.example.project.bookmyshowbackend.Repository.TicketRepository;
 import com.example.project.bookmyshowbackend.Repository.UserRepository;
 import com.example.project.bookmyshowbackend.converter.TicketConvertor;
 import com.example.project.bookmyshowbackend.dto.BookTicketRequestDto;
+import com.example.project.bookmyshowbackend.dto.ResponseDto.TicketResponseDto;
 import com.example.project.bookmyshowbackend.dto.TicketDto;
 import com.example.project.bookmyshowbackend.service.TicketService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,6 +21,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+@Service
 public class TicketServiceImpl implements TicketService {
 
     @Autowired
@@ -31,17 +34,26 @@ public class TicketServiceImpl implements TicketService {
     TicketRepository ticketRepository;
 
     @Override
-    public TicketDto getTicket(int id) {
-        return null;
+    public TicketResponseDto getTicket(int id) {
+
+        TicketEntity ticketEntity = ticketRepository.findById(id).get();
+
+        TicketResponseDto ticketResponseDto = TicketConvertor.convertEntityToDto(ticketEntity);
+
+        return ticketResponseDto;
+
     }
 
     @Override
-    public TicketDto bookTicket(BookTicketRequestDto bookTicketRequestDto) {
+    public TicketResponseDto bookTicket(BookTicketRequestDto bookTicketRequestDto) {
 
 
         UserEntity userEntity = userRepository.findById(bookTicketRequestDto.getId()).get();
         ShowEntity showEntity = showRepository.findById(bookTicketRequestDto.getShowId()).get();
+
         Set<String> requestSeats = bookTicketRequestDto.getRequestedSeats();
+
+
         List<ShowSeatsEntity> showSeatsEntityList = showEntity.getSeats();
 
 
@@ -91,7 +103,8 @@ public class TicketServiceImpl implements TicketService {
             amount = amount + showSeatsEntity.getRate();
         }
 
-        ticketEntity.setAllottedSeats(String.valueOf(bookedSeats));
+        ticketEntity.setBookedAt(new Date());
+        ticketEntity.setAllottedSeats(convertListOfSeatsEntityToString(bookedSeats));
         ticketEntity.setAmount(amount);
 
 
@@ -108,6 +121,18 @@ public class TicketServiceImpl implements TicketService {
 
         return TicketConvertor.convertEntityToDto(ticketEntity);
 
+
+    }
+
+    public String convertListOfSeatsEntityToString(List<ShowSeatsEntity> bookedSeats){
+
+        String str = "";
+        for(ShowSeatsEntity showSeatsEntity : bookedSeats){
+
+            str = str + showSeatsEntity.getSeatNumber()+" ";
+        }
+
+        return str;
 
     }
 }

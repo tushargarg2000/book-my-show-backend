@@ -21,13 +21,16 @@ public class MovieServiceImpl implements MovieService {
 
     @Override
     public MovieResponseDto addMovie(MovieEntryDto movieEntryDto)  {
+    
+        
+        MovieResponseDto movieResponseDto = null;
 
         //if the movie is already created then we can throw an exception....movie already exists.
-        if(movieRepository.getMovieEntityByName(movieEntryDto.getName())==true){
-            throw new DuplicateEntityException("The movie exists already exists by this name, duplicate entry");
+        if(movieRepository.existsByName(movieEntryDto.getName())){
+            
+            movieResponseDto.setName("This movie is already Existing");
+            return movieResponseDto;
         }
-
-
 
         log.info("In the function add movie "+ movieEntryDto);
 
@@ -35,7 +38,7 @@ public class MovieServiceImpl implements MovieService {
         MovieEntity movieEntity = MovieConverter.convertDtoToEntity(movieEntryDto);
         movieEntity = movieRepository.save(movieEntity);
 
-        MovieResponseDto movieResponseDto = MovieConverter.convertEntityToDto(movieEntity);
+         movieResponseDto = MovieConverter.convertEntityToDto(movieEntity);
 
         return movieResponseDto; //It can be a response type of the movie
 

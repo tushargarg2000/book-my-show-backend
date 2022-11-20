@@ -46,13 +46,13 @@ public class ShowServiceImpl implements ShowService {
         showEntity.setMovie(movieEntity);
         showEntity.setTheater(theaterEntity);
 
+        showEntity = showRepository.save(showEntity);
 
 
         //We need to pass the list of the theater seats
         generateShowEntitySeats(theaterEntity.getSeats(),showEntity);
 
 
-        showEntity = showRepository.save(showEntity);
 
         //We need to create Response Show Dto.
 
@@ -84,13 +84,13 @@ public class ShowServiceImpl implements ShowService {
 
 
         //We need to set the show Entity for each of the ShowSeat....
-
-
-        showSeatsRepository.saveAll(showSeatsEntityList);
-
         for(ShowSeatsEntity showSeatsEntity:showSeatsEntityList){
             showSeatsEntity.setShow(showEntity);
         }
+
+        showSeatsRepository.saveAll(showSeatsEntityList);
+
+
         showEntity.setSeats(showSeatsEntityList);
 
     }
