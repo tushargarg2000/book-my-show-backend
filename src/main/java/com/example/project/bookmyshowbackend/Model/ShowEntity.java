@@ -46,13 +46,11 @@ public class ShowEntity {
 
     @CreationTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
     @Column(name = "created_at")
     private Date createdAt;
 
     @UpdateTimestamp
     @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
     @Column(name = "updated_at")
     private Date updatedAt;
 

@@ -22,7 +22,9 @@ public class BookTicketRequestDto {
 
     int showId; //For which show I want to book ticket :- showEntity
 
-    int id;
+    int id; //userId
+
+
     SeatType seatType; //TheaterSeatEntity
 
 }
