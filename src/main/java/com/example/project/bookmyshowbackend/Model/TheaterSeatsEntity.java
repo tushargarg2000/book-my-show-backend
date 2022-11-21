@@ -38,5 +38,6 @@ public class TheaterSeatsEntity {
 
     @ManyToOne
     @JsonIgnore
+    @JoinColumn
     private TheaterEntity theater;
 }

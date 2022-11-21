@@ -2,14 +2,12 @@ package com.example.project.bookmyshowbackend.controller;
 
 
 import com.example.project.bookmyshowbackend.dto.EntryRequest.MovieEntryDto;
+import com.example.project.bookmyshowbackend.dto.ResponseDto.MovieNameAndIdObject;
 import com.example.project.bookmyshowbackend.dto.ResponseDto.MovieResponseDto;
 import com.example.project.bookmyshowbackend.service.impl.MovieServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -30,4 +28,14 @@ public class MovieController {
         return movieResponseDto;
 
     }
+
+    @GetMapping("/get/{id}")
+    public MovieNameAndIdObject getNameAndId(@PathVariable Integer id){
+
+        MovieNameAndIdObject movieNameAndIdObject = movieService.getNameAndId(id);
+
+        return movieNameAndIdObject;
+    }
+
+
 }

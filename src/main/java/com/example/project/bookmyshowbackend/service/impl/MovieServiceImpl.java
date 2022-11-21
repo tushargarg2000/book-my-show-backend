@@ -4,6 +4,7 @@ import com.example.project.bookmyshowbackend.Model.MovieEntity;
 import com.example.project.bookmyshowbackend.Repository.MovieRepository;
 import com.example.project.bookmyshowbackend.converter.MovieConverter;
 import com.example.project.bookmyshowbackend.dto.EntryRequest.MovieEntryDto;
+import com.example.project.bookmyshowbackend.dto.ResponseDto.MovieNameAndIdObject;
 import com.example.project.bookmyshowbackend.dto.ResponseDto.MovieResponseDto;
 import com.example.project.bookmyshowbackend.exception.DuplicateEntityException;
 import com.example.project.bookmyshowbackend.service.MovieService;
@@ -22,7 +23,12 @@ public class MovieServiceImpl implements MovieService {
     @Override
     public MovieResponseDto addMovie(MovieEntryDto movieEntryDto)  {
     
-        
+
+        //Id --> not there
+        //name  --> Yes
+        //releaseDate --> Yes
+
+
         MovieResponseDto movieResponseDto = null;
 
         //if the movie is already created then we can throw an exception....movie already exists.
@@ -35,8 +41,19 @@ public class MovieServiceImpl implements MovieService {
         log.info("In the function add movie "+ movieEntryDto);
 
 
+        //I need a movieEntity Object
+        /*
+                How can I get it
+         */
+
+        //We were createing a MovieEntity Object
+
+
         MovieEntity movieEntity = MovieConverter.convertDtoToEntity(movieEntryDto);
-        movieEntity = movieRepository.save(movieEntity);
+
+
+        movieEntity = movieRepository.save(movieEntity); //This will auto add the id variable
+        //
 
          movieResponseDto = MovieConverter.convertEntityToDto(movieEntity);
 
@@ -53,4 +70,20 @@ public class MovieServiceImpl implements MovieService {
         return movieResponseDto;
 
     }
+
+    @Override
+    public MovieNameAndIdObject getNameAndId(int id){
+
+        //I need information from repo
+        MovieEntity movieEntity = movieRepository.findById(id).get(); //Get this movieEntity from the database
+
+
+        //I have to convert it
+
+        MovieNameAndIdObject obj = MovieConverter.convertEntityToThisObject(movieEntity);
+
+
+        return obj;
+    }
+
 }

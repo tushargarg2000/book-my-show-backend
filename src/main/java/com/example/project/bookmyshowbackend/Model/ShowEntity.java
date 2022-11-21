@@ -71,6 +71,9 @@ public class ShowEntity {
     @JsonIgnore
     private List<TicketEntity> tickets;
 
+
+
+
     @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<ShowSeatsEntity> seats;

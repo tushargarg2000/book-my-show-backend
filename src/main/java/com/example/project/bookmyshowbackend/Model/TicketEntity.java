@@ -51,6 +51,7 @@ public class TicketEntity {
 
     @ManyToOne
     @JsonIgnore
+    @JoinColumn
     private ShowEntity show;
 
     @OneToMany(mappedBy = "show", cascade = CascadeType.ALL)

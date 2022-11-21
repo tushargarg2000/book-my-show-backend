@@ -32,7 +32,7 @@ public class MovieEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private int id; //Auto-generated
 
     @Column(name = "name", nullable = false)
     private String name;
@@ -41,6 +41,10 @@ public class MovieEntity {
     @Column(name = "release_date", columnDefinition = "DATE", nullable = false)
     private LocalDate releaseDate;
 
+
+    //Connecting the other table
+    //Since this is the parent (how did we come to know : its having mappedBy and cascade )
+    //child table : its having @JoinColumn Annotation
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     @JsonIgnore
     private List<ShowEntity> shows;
